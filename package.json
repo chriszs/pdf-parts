@@ -16,5 +16,8 @@
   },
   "devDependencies": {
     "mocha": "^3.2.0"
+  },
+  "jshintConfig": {
+    "esnext": true
   }
 }

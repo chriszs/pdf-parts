@@ -11,18 +11,18 @@ program
 program
     .command('text <pdf>')
     .description('extract text')
-    .action(function(pdf, options) {
+    .action((pdf, options) => {
         pdfParts.text(pdf).pipe(process.stdout);
     });
 
 program
     .command('images <pdf>')
     .description('extract images')
-    .action(function(pdf, options) {
-        var page = 1;
+    .action((pdf, options) => {
+        let page = 1;
 
-        pdfParts.images(pdf).each(function (stream) {
-            stream.pipe(fs.createWriteStream(page + '.png'));
+        pdfParts.images(pdf).each(stream => {
+            stream.pipe(fs.createWriteStream(`${page}.png`));
 
             page++;
         });
