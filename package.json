@@ -10,9 +10,8 @@
     "commander": "^2.9.0",
     "highland": "^2.10.2",
     "html-element": "^2.2.0",
-    "lodash": "^4.17.4",
-    "pdfjs-dist": "^1.7.346",
-    "tesseract.js": "^1.0.10"
+    "lodash.uniq": "^4.5.0",
+    "pdfjs-dist": "^1.7.346"
   },
   "devDependencies": {
     "mocha": "^3.2.0"
