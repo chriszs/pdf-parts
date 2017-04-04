@@ -17,7 +17,7 @@ program
 
 program
     .command('images <pdf>')
-    .description('extract text')
+    .description('extract images')
     .action(function(pdf, options) {
         var page = 1;
 
