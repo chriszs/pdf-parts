@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+var program = require('commander'),
+    pkg = require('../package.json'),
+    pdfParts = require('../'),
+    fs = require('fs');
+
+program
+    .version(pkg.version);
+
+program
+    .command('text <pdf>')
+    .description('extract text')
+    .action(function(pdf, options) {
+        pdfParts.text(pdf).pipe(process.stdout);
+    });
+
+program
+    .command('images <pdf>')
+    .description('extract text')
+    .action(function(pdf, options) {
+        var page = 1;
+
+        pdfParts.images(pdf).each(function (stream) {
+            stream.pipe(fs.createWriteStream(page + '.png'));
+
+            page++;
+        });
+    });
+
+program.parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+    program.outputHelp();
+}
